@@ -116,7 +116,6 @@ export const SLIDES_CONTENT = [
         type: 'list',
         title: 'Avisos da Semana',
         items: [
-            { icon: 'heart', text: 'Culto de Casais – Segunda (17/11)' },
             { icon: 'sword', text: 'Acampamento de Homens – 29 e 30/11 (inscrições com Willian Stingelin)' },
             { icon: 'droplet', text: 'Batismo – 07/12' },
             { icon: 'mask', text: 'Espetáculo de Artes – 13/12 (ingressos à venda com os integrantes da CIA Kyrios)' },

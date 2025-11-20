@@ -11,29 +11,29 @@ interface Props {
 export const BibleReader: React.FC<Props> = ({ onNext, onPrev }) => {
     return (
         <div className="relative h-full w-full max-w-4xl mx-auto bg-slate-800/50 rounded-xl border border-slate-700 backdrop-blur-sm overflow-hidden flex flex-col shadow-2xl group">
-            <div className="flex justify-between items-center p-6 border-b border-slate-600 bg-slate-900/50 z-10">
-                <h3 className="text-2xl font-serif text-brand-accent">João 9</h3>
-                <span className="text-sm text-slate-400 bg-slate-900 px-2 py-1 rounded">NVI</span>
+            <div className="flex justify-between items-center p-3 md:p-6 border-b border-slate-600 bg-slate-900/50 z-10 shrink-0">
+                <h3 className="text-lg md:text-2xl font-serif text-brand-accent">João 9</h3>
+                <span className="text-xs md:text-sm text-slate-400 bg-slate-900 px-2 py-1 rounded">NVI</span>
             </div>
             
-            <div className="overflow-y-auto custom-scroll p-6 space-y-2 text-lg leading-relaxed text-slate-300 text-justify font-serif relative">
+            <div className="flex-1 overflow-y-auto custom-scroll p-3 md:p-6 space-y-2 text-base md:text-lg leading-relaxed text-slate-300 text-justify font-serif relative">
                 {JOHN_9_VERSES.map((verse) => (
                     <VerseItem key={verse.number} verse={verse} />
                 ))}
-                <div className="h-20"></div> {/* Bottom spacer */}
+                <div className="h-10 md:h-20"></div> {/* Bottom spacer */}
             </div>
 
-            {/* Navigation Overlay Buttons - Visible on hover or active */}
+            {/* Navigation Overlay Buttons - Visible on hover or active, ONLY on desktop/tablet to save space on mobile */}
             <button 
                 onClick={onPrev}
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-slate-900/80 rounded-full text-slate-300 hover:text-white hover:bg-brand-primary transition-all opacity-0 group-hover:opacity-100 z-20"
+                className="hidden md:block absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-slate-900/80 rounded-full text-slate-300 hover:text-white hover:bg-brand-primary transition-all opacity-0 group-hover:opacity-100 z-20"
                 aria-label="Previous Slide"
             >
                 <ChevronLeft size={32} />
             </button>
             <button 
                 onClick={onNext}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-slate-900/80 rounded-full text-slate-300 hover:text-white hover:bg-brand-primary transition-all opacity-0 group-hover:opacity-100 z-20"
+                className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-slate-900/80 rounded-full text-slate-300 hover:text-white hover:bg-brand-primary transition-all opacity-0 group-hover:opacity-100 z-20"
                 aria-label="Next Slide"
             >
                 <ChevronRight size={32} />
@@ -55,7 +55,7 @@ const VerseItem: React.FC<{ verse: Verse }> = ({ verse }) => {
     if (verse.hasSpecialHighlight) {
         return (
             <span className="inline leading-loose">
-                <sup className="text-xs text-slate-500 mr-1 font-sans select-none">{verse.number}</sup>
+                <sup className="text-[0.65rem] md:text-xs text-slate-500 mr-1 font-sans select-none">{verse.number}</sup>
                 <span className={verse.isHighlighted ? highlightClass : baseClass}>
                     {verse.preSpecial}
                 </span>
@@ -77,7 +77,7 @@ const VerseItem: React.FC<{ verse: Verse }> = ({ verse }) => {
 
     return (
         <span className="inline leading-loose">
-             <sup className="text-xs text-slate-500 mr-1 font-sans select-none">{verse.number}</sup>
+             <sup className="text-[0.65rem] md:text-xs text-slate-500 mr-1 font-sans select-none">{verse.number}</sup>
              <span className={verse.isHighlighted ? highlightClass : baseClass}>
                 {verse.text}
              </span>

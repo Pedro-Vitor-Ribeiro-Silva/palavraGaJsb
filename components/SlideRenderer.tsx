@@ -1,6 +1,6 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BibleReader } from './BibleReader';
 import { Heart, Swords, Droplets, Drama } from 'lucide-react';
 
 interface SlideData {
@@ -20,7 +20,7 @@ interface Props {
     onPrev: () => void;
 }
 
-export const SlideRenderer: React.FC<Props> = ({ slide, onNext, onPrev }) => {
+export const SlideRenderer: React.FC<Props> = ({ slide }) => {
     switch (slide.type) {
         case 'intro':
             return (
@@ -44,22 +44,6 @@ export const SlideRenderer: React.FC<Props> = ({ slide, onNext, onPrev }) => {
                     >
                         {slide.subtitle}
                     </motion.h2>
-                </div>
-            );
-
-        case 'bible':
-            return (
-                <div className="h-full flex flex-col">
-                    <motion.h2 
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="text-xl md:text-3xl font-bold text-center mb-3 md:mb-6 text-white font-serif shrink-0"
-                    >
-                        {slide.title} <span className="text-brand-accent ml-2 hidden sm:inline">{slide.subtitle}</span>
-                    </motion.h2>
-                    <div className="flex-1 overflow-hidden min-h-0">
-                        <BibleReader onNext={onNext} onPrev={onPrev} />
-                    </div>
                 </div>
             );
 

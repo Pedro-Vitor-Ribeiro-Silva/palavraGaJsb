@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { JOHN_9_VERSES, Verse } from '../constants';
+import { SAMUEL_17_VERSES, Verse } from '../constants';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -12,12 +13,12 @@ export const BibleReader: React.FC<Props> = ({ onNext, onPrev }) => {
     return (
         <div className="relative h-full w-full max-w-4xl mx-auto bg-slate-800/50 rounded-xl border border-slate-700 backdrop-blur-sm overflow-hidden flex flex-col shadow-2xl group">
             <div className="flex justify-between items-center p-3 md:p-6 border-b border-slate-600 bg-slate-900/50 z-10 shrink-0">
-                <h3 className="text-lg md:text-2xl font-serif text-brand-accent">João 9</h3>
+                <h3 className="text-lg md:text-2xl font-serif text-brand-accent">1 Samuel 17</h3>
                 <span className="text-xs md:text-sm text-slate-400 bg-slate-900 px-2 py-1 rounded">NVI</span>
             </div>
             
             <div className="flex-1 overflow-y-auto custom-scroll p-3 md:p-6 space-y-2 text-base md:text-lg leading-relaxed text-slate-300 text-justify font-serif relative">
-                {JOHN_9_VERSES.map((verse) => (
+                {SAMUEL_17_VERSES.map((verse) => (
                     <VerseItem key={verse.number} verse={verse} />
                 ))}
                 <div className="h-10 md:h-20"></div> {/* Bottom spacer */}
